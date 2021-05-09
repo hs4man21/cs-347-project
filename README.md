@@ -3,6 +3,11 @@
 Got started using the following guide:
 https://developer.chrome.com/docs/extensions/mv3/getstarted/
 
+## How it works
+1. User clicks extension and types in feedback
+2. User clicks "Submit" button
+3. Feedback sent as email to cs347spring2021@gmail.com
+
 ## To run this extension locally:
 1. Clone this repo on your machine
 2. Open Chrome
