@@ -12,6 +12,6 @@ changeColor.addEventListener("click", async () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ feedback: `"${feedback.value}" reported at ${currentTab.url}` }),
-    });
+    }).then(feedback.value = "");
   });
 });
