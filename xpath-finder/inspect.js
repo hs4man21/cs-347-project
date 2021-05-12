@@ -11,6 +11,7 @@ var xPathFinder = xPathFinder || (() => {
 
       this.cssNode = 'xpath-css';
       this.contentNode = 'xpath-content';
+      this.feedback = 'xpath-feedback';
       this.overlayElement = 'xpath-overlay';
     }
 
@@ -19,22 +20,22 @@ var xPathFinder = xPathFinder || (() => {
       e.preventDefault && e.preventDefault();
       e.stopPropagation && e.stopPropagation();
 
-      if (e.target.id !== this.contentNode) {
+      if (e.target.id !== this.contentNode && e.target.id !== this.feedback) {
         this.XPath = this.getXPath(e.target);
         const contentNode   = document.getElementById(this.contentNode);
         const iframeNode    = window.frameElement || iframe;
         const contentString = iframeNode ? `Iframe: ${this.getXPath(iframeNode)}<br/>XPath: ${this.XPath}` : this.XPath;
 
         if (contentNode) {
-          contentNode.innerHTML = contentString;
+          //contentNode.firstChild.placeholder = contentString;
         } else {
           const contentHtml = document.createElement('div');
-          contentHtml.innerHTML = contentString;
+          contentHtml.innerHTML = '<textarea maxlength="5000" placeholder="Add feedback" cols="80" rows="5"></textarea>';
           contentHtml.id = this.contentNode;
+          contentHtml.firstChild.id = this.feedback;
           document.body.appendChild(contentHtml);
         }
         this.options.clipboard && ( this.copyText(this.XPath) );
-        console.log(JSON.stringify({ x: 5, y: 6 }));
         const bodyMessage = JSON.stringify({ feedback: `"${this.XPath}" reported at ${window.location.href}` }); 
         console.log(bodyMessage);
         fetch('https://street-smarts-demo.herokuapp.com/send-test/', {
@@ -51,7 +52,7 @@ var xPathFinder = xPathFinder || (() => {
       const storage = chrome.storage && (chrome.storage.local);
       const promise = storage.get({
         inspector: true,
-        clipboard: true,
+        clipboard: false,
         shortid: true,
         position: 'bl'
       }, this.setOptions);
@@ -174,6 +175,22 @@ var xPathFinder = xPathFinder || (() => {
       this.removeOverlay();
       // remove xpath html
       const contentNode = document.getElementById(this.contentNode);
+     
+      if (contentNode.firstChild.value) {
+
+        const bodyMessage = JSON.stringify({ feedback: `"${contentNode.firstChild.value}" reported at ${window.location.href}` });
+        console.log(bodyMessage)
+        fetch('https://street-smarts-demo.herokuapp.com/send-test/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+            body: bodyMessage,
+        });
+      }
+      
+      // console.log(contentNode.firstChild.value);
+      // send if there is feedback
       contentNode && contentNode.remove();
       // remove listeners for all frames and root
       document.removeEventListener('click', this.getData, true);
