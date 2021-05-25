@@ -50,7 +50,7 @@ function saveOptions(e) {
 function restoreOptions() {
   browserAppData.storage.local.get({
     inspector: true,
-    clipboard: true,
+    clipboard: false,
     shortid: true,
     position: 'bl',
     shortcut: 'U'
