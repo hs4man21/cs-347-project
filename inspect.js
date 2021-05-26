@@ -30,7 +30,7 @@ var xPathFinder = xPathFinder || (() => {
           //contentNode.firstChild.placeholder = contentString;
         } else {
           const contentHtml = document.createElement('div');
-          contentHtml.innerHTML = '<textarea maxlength="5000" placeholder="Add feedback" cols="80" rows="5"></textarea>';
+          contentHtml.innerHTML = '<textarea style="font-size: 24px;padding:10px;" maxlength="5000" placeholder="Add feedback" cols="80" rows="5"></textarea>';
           contentHtml.id = this.contentNode;
           contentHtml.firstChild.id = this.feedback;
           document.body.appendChild(contentHtml);
