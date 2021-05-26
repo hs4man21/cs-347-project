@@ -1,27 +1,10 @@
-# Project for CS 347 in Spring 2021
+# xPath Finder
 
-Got started using the following guide:
-https://developer.chrome.com/docs/extensions/mv3/getstarted/
+This is a fork of the Chrome extension that displays XPath:
+https://chrome.google.com/webstore/detail/xpath-finder/ihnknokegkbpmofmafnkoadfjkhlogph
 
-## How it works
-1. User clicks extension and types in feedback
-2. User clicks "Submit" button
-3. Feedback sent as email to cs347spring2021@gmail.com
-
-## To run this extension locally:
-1. Clone this repo on your machine
-2. Open Chrome
-3. Click extensions button (puzzle piece)
-4. Click "Manage Extensions"
-5. Ensure "Developer mode" is turned on
-6. Click "Load unpacked"
-7. Select your local copy of this repo
-8. You can now use the extension in Chrome
-
-## To update this extension locally
-1. Ensure your local copy of this repo is updated
-2. Open Chrome
-3. Click extensions button (puzzle piece)
-4. Click "Manage Extensions"
-5. Click refresh icon near bottom right corner of extension tile
-6. The version of the extension in your Chrome browser now matches the version of your local copy of this repo
+## Usage
+1. Click on the plugin icon, cursor will be changed to the **crosshair**
+2. Hover over the desired element **(elements are highlighted on hover)**
+3. Click on the element and his xPath will display in the panel at the bottom of the page
+4. E-mail is sent to cs347spring2021@gmail.com

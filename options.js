@@ -52,7 +52,7 @@ function restoreOptions() {
     inspector: true,
     clipboard: false,
     shortid: true,
-    position: 'bl',
+    position: 'tr',
     shortcut: 'U'
   }, items => {
     document.querySelector('#inspector').checked = items.inspector;
