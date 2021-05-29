@@ -1,6 +1,7 @@
 Got started using the following guide:
 https://developer.chrome.com/docs/extensions/mv3/getstarted/
-And this:
+
+And forked from this:
 https://chrome.google.com/webstore/detail/xpath-finder/ihnknokegkbpmofmafnkoadfjkhlogph
 
 ## How it works
