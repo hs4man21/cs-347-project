@@ -1,0 +1,30 @@
+
+
+# This is the IOS Client implementation for accessibility client. 
+
+
+# Purpose
+
+  A tool for submitting voice feedback on webpage design flaws for accessibility
+
+# Target platform
+
+  IOS.
+  This app uses camera, so not recommended on simulator.
+  It works on the ipad, but is mainly designed for iphones.
+ 
+# Architecture
+
+  This app relied on pages instrumented with QR code to designate the goal for submission.
+  Once a QR code is scanned (or eqivalent text string typed in), the app allows for voice feedback transcription sent to Firebase backend
+
+# Usage
+
+  When the user opens the app, they can scan the QR directly with phone camera. After that, they are in submssion screen.
+  going back one menu brings them again to QR scan to annotate another page.
+
+# Testing without QR
+
+  Try a few existing page codes - MPUZKX, MLZRFQ, NFRHMO.
+
+
